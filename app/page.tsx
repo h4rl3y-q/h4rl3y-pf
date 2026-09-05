@@ -1444,6 +1444,12 @@ export default function ComicPortfolio() {
         }
 
         @media (max-width: 640px) {
+          .cb-pop {
+            opacity: 1;
+            transform: none;
+            animation: none;
+          }
+
           .cb-nav-links { display: none; }
           .cb-menu-btn { display: inline-flex; }
           .cb-mobile-panel.open {
