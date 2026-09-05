@@ -113,4 +113,6 @@ The requests are made in the browser through SWR and refreshed every five minute
 
 ## License
 
-This portfolio is private and intended for personal use. Add a license here if the project is later published for reuse.
+The source code is licensed under the [MIT License](LICENSE).
+
+The portfolio's personal content, name, biography, contact details, profile artwork, and branding are not intended for reuse as part of that license. Third-party stat cards and fonts remain subject to their respective providers' terms.
