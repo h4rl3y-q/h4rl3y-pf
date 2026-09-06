@@ -1387,7 +1387,7 @@ export default function ComicPortfolio() {
           justify-content: space-between;
           gap: 1rem;
           font-family: 'Space Mono', monospace;
-          font-size: 0.75rem;
+          font-size: 0.55rem;
           color: #77727d;
         }
 
