@@ -120,7 +120,6 @@ const fetcher = (url) => fetch(url).then((response) => {
 });
 
 function BootSequence({ onComplete }) {
-  const [lines, setLines] = useState([]);
   const bootLines = [
     "BIOS :: PORTFOLIO CORE v2.5",
     "mounting /projects ... ok",
@@ -130,9 +129,8 @@ function BootSequence({ onComplete }) {
   ];
 
   useEffect(() => {
-    const timers = bootLines.map((line, index) => setTimeout(() => setLines((current) => [...current, line]), 280 + index * 310));
-    const done = setTimeout(onComplete, 2100);
-    return () => [...timers, done].forEach(clearTimeout);
+    const done = setTimeout(onComplete, 3200);
+    return () => clearTimeout(done);
   }, [onComplete]);
 
   return (
@@ -140,7 +138,15 @@ function BootSequence({ onComplete }) {
       <div className="cb-boot-inner">
         <div className="cb-boot-mark">PB<span>_</span></div>
         <div className="cb-boot-lines">
-          {lines.map((line) => <div key={line}><span className="cb-prompt">$</span> {line}</div>)}
+          {bootLines.map((line, index) => (
+            <div
+              className="cb-boot-line"
+              key={line}
+              style={{ animationDelay: `${280 + index * 420}ms` }}
+            >
+              <span className="cb-prompt">$</span> {line}
+            </div>
+          ))}
           <span className="cb-cursor" aria-hidden="true" />
         </div>
       </div>
@@ -1407,14 +1413,19 @@ export default function ComicPortfolio() {
           background: #101116;
           color: #d8f7d8;
           font: 0.8rem/1.8 'Space Mono', monospace;
-          animation: cb-boot-out 420ms ease 1.85s forwards;
+          animation: cb-boot-out 420ms ease 2.8s forwards;
         }
         .cb-boot-inner { width: min(680px, calc(100% - 2rem)); }
         .cb-boot-mark { color: var(--yellow); font: 3rem/1 'Bangers', cursive; letter-spacing: 0.08em; margin-bottom: 1.5rem; }
         .cb-boot-mark span, .cb-prompt { color: var(--yellow); }
         .cb-boot-lines { min-height: 10rem; }
+        .cb-boot-line {
+          opacity: 0;
+          animation: cb-boot-line-in 260ms ease forwards;
+        }
         .cb-cursor { display: inline-block; width: 0.55rem; height: 1rem; background: var(--yellow); vertical-align: -0.15rem; animation: cb-blink 800ms steps(1) infinite; }
         @keyframes cb-blink { 50% { opacity: 0; } }
+        @keyframes cb-boot-line-in { to { opacity: 1; } }
         @keyframes cb-boot-out { to { opacity: 0; visibility: hidden; pointer-events: none; } }
         .cb-terminal-section { background: #e9e4d7; color: #13141a; }
         .cb-terminal-section .cb-section-title { color: var(--black); }
@@ -1519,6 +1530,7 @@ export default function ComicPortfolio() {
 
         @media (prefers-reduced-motion: reduce) {
           .cb-pop { animation: none !important; opacity: 1; transform: none; }
+          .cb-boot-line { animation: none; opacity: 1; }
           .cb-case, .cb-btn, .cb-signal-link { transition: none; }
         }
       `}</style>
