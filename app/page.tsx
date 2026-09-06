@@ -5,6 +5,7 @@ import useSWR from "swr";
 import {
   Code2,
   BriefcaseBusiness,
+  FileUser,
   Mail,
   Menu,
   X,
@@ -1770,6 +1771,20 @@ export default function ComicPortfolio() {
                 </p>
               </div>
               <div className="cb-signal-links">
+                <a
+                  href="https://drive.google.com/file/d/1aGIF6xICo3f3s9E9OYzvgtzXovwjdp8R/view?usp=sharing"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="cb-signal-link"
+                >
+                  <span className="cb-signal-icon">
+                    <FileUser size={17} />
+                  </span>
+                  <span>
+                    <div className="cb-signal-meta-label">Download Resume</div>
+                    <div className="cb-signal-meta-value">Resume</div>
+                  </span>
+                </a>
                 <a
                   href="https://github.com/h4rl3y-q"
                   target="_blank"
