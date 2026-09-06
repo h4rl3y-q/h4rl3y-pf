@@ -3,7 +3,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Priyanka B. — Backend Developer',
-  description: 'Priyanka B. builds resilient backend systems, security tools, and full-stack projects with Java, Spring Boot, and Python.',
+  description: 'Priyanka B. builds resilient backend systems, and full-stack projects with Java, Spring Boot, and Python.',
 }
 
 export const viewport: Viewport = {
