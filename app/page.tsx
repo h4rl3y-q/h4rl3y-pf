@@ -856,7 +856,7 @@ export default function ComicPortfolio() {
         }
 
         .cb-pop {
-          opacity: 0;
+          opacity: 1;
           transform: scale(0.85) rotate(-3deg);
         }
 
@@ -865,7 +865,7 @@ export default function ComicPortfolio() {
         }
 
         @keyframes cbPop {
-          0% { opacity: 0; transform: scale(0.8) rotate(-4deg); }
+          0% { opacity: 1; transform: scale(0.8) rotate(-4deg); }
           70% { opacity: 1; transform: scale(1.04) rotate(1deg); }
           100% { opacity: 1; transform: scale(1) rotate(0deg); }
         }
